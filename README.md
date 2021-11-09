@@ -14,7 +14,7 @@ A devvelopment server will start at [localhost:3000](http://localhost:3000).
 $ amplify publish
 ```
 
-A production server will start at [https://www.avzeus.net/](https://www.avzeus.net/).
+A production server will start at [avzeus.net](https://www.avzeus.net/).
 
 ## Libraries
 
