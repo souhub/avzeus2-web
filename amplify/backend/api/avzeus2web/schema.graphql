@@ -1,0 +1,30 @@
+type Actress @model {
+  id: ID!
+  name: String
+  ruby: String
+  bust: String
+  cup: String
+  waist: String
+  hip: String
+  height: String
+  birthday: String
+  blood_type: String
+  hobby: String
+  prefectures: String
+  imageURL: ImageURL @connection
+  listURL: ListURL @connection
+}
+
+type ImageURL @model {
+  small: String
+  large: String
+  actressID: ID!
+}
+
+type ListURL @model {
+  digital: String
+  monthly: String
+  mono: String
+  rental: String
+  actressID: ID!
+}
