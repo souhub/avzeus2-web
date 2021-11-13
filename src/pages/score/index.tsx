@@ -1,5 +1,6 @@
 import { CSSProperties, FC, useCallback, useEffect } from "react"
-import { Form, Spin } from "antd"
+import { Form } from "antd"
+import Head from "next/head"
 
 import { useAppDispatch, useAppSelector } from "modules/hooks"
 import {
@@ -13,7 +14,7 @@ import { ScoreForm } from "components/form/score/base"
 import { useRouter } from "next/dist/client/router"
 import { ZeusWithMessage } from "components/molecules/zeusWithMessage"
 import { Button } from "components/molecules/button"
-import Head from "next/head"
+import { Spin } from "components/molecules/spin"
 
 type ScoreFormValues = Score[]
 
@@ -68,22 +69,25 @@ const ScoreSelection: FC<Props> = () => {
         </p>
       </ZeusWithMessage>
 
-      {status === "loading" ? (
-        <Spin tip='読み込み中じゃ！'></Spin>
-      ) : (
-        <div style={containerStyle}>
+      <div style={containerStyle}>
+        {status === "loading" ? (
+          <Spin tip='読み込み中じゃ！'></Spin>
+        ) : (
           <Form onFinish={onFinish}>
             <ScoreForm actresses={actresses} />
             {actresses.length !== 0 && (
               <Button htmlType='submit'>お願いします！</Button>
             )}
           </Form>
-        </div>
-      )}
+        )}
+      </div>
     </Layout>
   )
 }
 
 export default ScoreSelection
 
-const containerStyle: CSSProperties = {}
+const containerStyle: CSSProperties = {
+  textAlign: "center",
+  margin: "auto",
+}

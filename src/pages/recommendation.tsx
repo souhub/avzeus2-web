@@ -1,5 +1,4 @@
-import { FC } from "react"
-import { Spin } from "antd"
+import { CSSProperties, FC } from "react"
 
 import { useAppSelector } from "modules/hooks"
 
@@ -7,6 +6,7 @@ import { ActressesList } from "components/actressesList"
 import { Layout } from "components/layout"
 import { ZeusWithMessage } from "components/molecules/zeusWithMessage"
 import Head from "next/head"
+import { Spin } from "components/molecules/spin"
 
 interface Props {}
 const Recommendation: FC<Props> = () => {
@@ -32,13 +32,19 @@ const Recommendation: FC<Props> = () => {
         )}
       </ZeusWithMessage>
 
-      {status === "loading" ? (
-        <Spin tip='がんばって計算中じゃ！'></Spin>
-      ) : (
-        <ActressesList actresses={actresses} />
-      )}
+      <div style={containerStyle}>
+        {status === "loading" ? (
+          <Spin tip='がんばって計算中じゃ！'></Spin>
+        ) : (
+          <ActressesList actresses={actresses} />
+        )}
+      </div>
     </Layout>
   )
 }
 
 export default Recommendation
+
+const containerStyle: CSSProperties = {
+  textAlign: "center",
+}

@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { CSSProperties, FC } from "react"
 import { Image, Spin } from "antd"
 
 import { Layout } from "components/layout"
@@ -43,7 +43,9 @@ const ImageUpload: FC<Props> = () => {
             <p>アップロードされた画像から顔を切り出し中じゃ</p>
             <p>しばらく待っておくれい！</p>
           </ZeusWithMessage>
-          <Spin tip='写真から顔を切り出し中じゃ！'></Spin>
+          <div style={containerStyle}>
+            <Spin tip='写真から顔を切り出し中じゃ！'></Spin>
+          </div>
         </>
       )}
 
@@ -53,7 +55,8 @@ const ImageUpload: FC<Props> = () => {
             <p>顔を認識できたぞい！</p>
             <p>この顔に似たAV女優をレコメンドするからぜひ見てってくれい！</p>
           </ZeusWithMessage>
-          <div style={{ textAlign: "center" }}>
+
+          <div style={containerStyle}>
             <div>
               <Image src={processedImage} />
             </div>
@@ -68,12 +71,15 @@ const ImageUpload: FC<Props> = () => {
             <p>顔が認識できなかったぞい！</p>
             <p>すまんが違う画像をアップロードしてくれい！</p>
           </ZeusWithMessage>
-          <Button
-            onClick={() => {
-              dispatch(statusUpdated("idle"))
-            }}>
-            アップロードをやり直す
-          </Button>
+
+          <div style={containerStyle}>
+            <Button
+              onClick={() => {
+                dispatch(statusUpdated("idle"))
+              }}>
+              アップロードをやり直す
+            </Button>
+          </div>
         </>
       )}
       {status === "failed" && (
@@ -83,12 +89,15 @@ const ImageUpload: FC<Props> = () => {
             <p>たぶん画像の形式が間違ってるぞい</p>
             <p>色んな画像形式に対応できるようにワシも勉強あるのみじゃ</p>
           </ZeusWithMessage>
-          <Button
-            onClick={() => {
-              dispatch(statusUpdated("idle"))
-            }}>
-            アップロードをやり直す
-          </Button>
+
+          <div style={containerStyle}>
+            <Button
+              onClick={() => {
+                dispatch(statusUpdated("idle"))
+              }}>
+              アップロードをやり直す
+            </Button>
+          </div>
         </>
       )}
     </Layout>
@@ -96,3 +105,7 @@ const ImageUpload: FC<Props> = () => {
 }
 
 export default ImageUpload
+
+const containerStyle: CSSProperties = {
+  textAlign: "center",
+}
