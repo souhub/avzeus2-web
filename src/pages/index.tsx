@@ -4,12 +4,17 @@ import { Layout } from "components/layout"
 import { ZeusWithMessage } from "components/molecules/zeusWithMessage"
 import { Button } from "components/molecules/button"
 import { useRouter } from "next/dist/client/router"
+import Head from "next/head"
+
 interface Props {}
 
 const Home: FC<Props> = () => {
   const router = useRouter()
   return (
     <Layout>
+      <Head>
+        <title>AVゼウス</title>
+      </Head>
       <ZeusWithMessage>
         <p>
           ワシがAV女優のことなら全知全能のAVゼウスじゃ。

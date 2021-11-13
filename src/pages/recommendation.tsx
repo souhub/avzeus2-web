@@ -6,6 +6,7 @@ import { useAppSelector } from "modules/hooks"
 import { ActressesList } from "components/actressesList"
 import { Layout } from "components/layout"
 import { ZeusWithMessage } from "components/molecules/zeusWithMessage"
+import Head from "next/head"
 
 interface Props {}
 const Recommendation: FC<Props> = () => {
@@ -13,6 +14,9 @@ const Recommendation: FC<Props> = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>レコメンド結果 | AVゼウス</title>
+      </Head>
       <ZeusWithMessage>
         {status === "loading" ? (
           <>

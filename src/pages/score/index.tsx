@@ -13,6 +13,7 @@ import { ScoreForm } from "components/form/score/base"
 import { useRouter } from "next/dist/client/router"
 import { ZeusWithMessage } from "components/molecules/zeusWithMessage"
 import { Button } from "components/molecules/button"
+import Head from "next/head"
 
 type ScoreFormValues = Score[]
 
@@ -55,6 +56,9 @@ const ScoreSelection: FC<Props> = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>スコアモード | AVゼウス</title>
+      </Head>
       <ZeusWithMessage>
         <p>
           下の7人のおなごの中から好き度を😥（あんまり）〜😍（好き）で入力するのじゃ。

@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "modules/hooks"
 import { Button } from "components/molecules/button"
 import { useRouter } from "next/dist/client/router"
 import { statusUpdated } from "modules/features/actresses/actressesSlice"
+import Head from "next/head"
 
 interface Props {}
 
@@ -22,6 +23,9 @@ const ImageUpload: FC<Props> = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>画像選択モード | AVゼウス</title>
+      </Head>
       {status === "idle" && (
         <>
           <ZeusWithMessage>
