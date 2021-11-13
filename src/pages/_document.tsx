@@ -1,7 +1,10 @@
 import NextDocument, { Html, Main, Head, NextScript } from "next/document"
 import { GID } from "env/env"
+import { Header } from "components/header"
+import { Footer } from "components/footer"
+import { Widget } from "components/widget"
 
-const src = `https://www.googletagmanager.com/gtag/js?id=${GID}`
+const analiticsSrc = `https://www.googletagmanager.com/gtag/js?id=${GID}`
 
 export default class Document extends NextDocument {
   render() {
@@ -9,7 +12,7 @@ export default class Document extends NextDocument {
       <Html>
         <Head>
           {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-          <script async src={src}></script>
+          <script async src={analiticsSrc}></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -50,8 +53,13 @@ export default class Document extends NextDocument {
           <meta name='theme-color' content='#ffffff'></meta>
         </Head>
         <body>
+          <Header />
+          <Widget bannerId='73_300_60' />
           <Main />
           <NextScript />
+          <Widget bannerId='192_300_250' />
+          <Widget bannerId='370_300_250' />
+          <Footer />
         </body>
       </Html>
     )

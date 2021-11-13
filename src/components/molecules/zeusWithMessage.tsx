@@ -7,13 +7,15 @@ interface Props {
 export const ZeusWithMessage: FC<Props> = ({ children }) => {
   return (
     <div style={containerStyle}>
-      <div style={fukidashiStyle}>{children}</div>
-      <div>
-        <img
-          src='https://dpgtkhmgfsuru.cloudfront.net/static/avzeus.png'
-          width={100}
-          alt='zeus'
-        />
+      <div style={{ margin: "auto", display: "flex" }}>
+        <div style={fukidashiStyle}>{children}</div>
+        <div>
+          <img
+            src='https://dpgtkhmgfsuru.cloudfront.net/static/avzeus.png'
+            width={100}
+            alt='zeus'
+          />
+        </div>
       </div>
     </div>
   )
@@ -35,5 +37,5 @@ const fukidashiStyle: CSSProperties = {
 
 const containerStyle: CSSProperties = {
   display: "flex",
-  margin: "10px 0",
+  margin: "10px",
 }
